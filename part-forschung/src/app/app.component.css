@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:wght@700&family=Noto+Sans+JP:wght@100&family=Playfair+Display&display=swap');
+
+
+:host {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+  
+.content {
+width: 800px;
+}
+
+
+h1 {
+font-family: 'Playfair Display', serif;
+font-size: 80px;
+}
+
+.question-header {
+    font-size: 40px;
+    margin-top: 48px;
+    margin-bottom: 1.6rem;
+    font-family: 'Bebas Neue', cursive;
+    color: #51568e;
+}
+
+.answer {
+
+    font-family: "Noto Sans JP",sans-serif;
+}
+
+.answer > div {
+margin-top: 16px;
+}
