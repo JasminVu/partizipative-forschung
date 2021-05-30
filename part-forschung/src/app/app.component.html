@@ -1,90 +1,39 @@
-<div class="content">
-  <h1>Partizipative Forschung</h1>
+<div class="body">
 
-  <div class="question-header">Was ist Sozialwissenschaft?</div>
-  <div class="answer">Sozialwissenschaften (auch Gesellschaftswissenschaften) untersuchen das gesellschaftliche Zusammenleben der Menschen. Zu ihnen zählen beispielsweise Fächer wie die Soziologie, die Kommunikationswissenschaft, die Pädagogik, die Politikwissenschaft oder die Gesundheitswissenschaften.</div>
-
-  <div class="question-header">Was ist partizipative Forschung?
-  </div>
-  <div class="answer">
-    <div>So verschieden die fachlichen Ausrichtungen innerhalb der Sozialwissenschaften sind, so verschieden sind auch die Forschungsstile (Die Art und Weise, wie sich einer Fragestellung genähert wird) der forschenden Sozialwissenschaftler*innen. Einen noch relativ neuen Forschungsstil stellt dabei die Partizipative Forschung dar.</div>
-
-    <div>Das Schlüsselelement der Partizipativen Forschung ist die Verschränkung der Perspektiven aus Wissenschaft und Praxis und die Beteiligung von von der Forschung Betroffenen Personen am Forschungsprozess. Der/die Wissenschaftler*in forscht somit nicht allein, sondern sucht sich eine/n Partner*in, der/die in dem gesellschaftlichen Bereich, der für den/die Wissenschaftler/in von Interesse ist, praktisch (z.B. beruflich oder auch privat im alltäglichen Leben) tätig ist, den/die sogenannte/n Praxispartner*in (diese können auch mehrere Personen sein). Der/die Praxispartner*in wird schließlich von Beginn an am gesamten Forschungsprozesses, von der Auswahl der Fragestellung bis hin zur Ergebnissicherung, beteiligt und kann so die Forschung gleichberechtigt mitgestalten und seine eigene Erfahrung und Expertise in das Projekt einbringen.</div>
-  </div>
-
-  <div class="question-header">Wie ist partizipative Forschung entstanden?</div>
-  <div class="answer">
-    <div>Die partizipative Forschung nahm 1946 ihren Ursprung im Konzept der Aktionsforschung nach Kurt Lewin. Lewin begann mit seinem Konzept das traditionelle Wissenschaftsverständnis, die strikte Trennung zwischen Wissenschaft und Praxis, kritisch zu hinterfragen und forderte, dass wissenschaftliche Arbeit nicht allein dazu dienen sollte eine bestimmte Fragestellung zu beantworten, sondern dazu beitragen sollte, die gesellschaftliche Praxis zu verändern. Die zu untersuchenden Frage- und Problemstellungen sollten darüber hinaus nicht mehr allein dem bloßen Anhäufen von Wissen dienen, sondern sich auch an den konkreten Bedürfnissen der Gesellschaft orientieren.
+  <div class="left-bar">
+    <div class="icon-header layout horizontal center">
+      <img id="icon" src="assets/img/007-find.png">
+      <div>Partizipative Forschung</div>
     </div>
-    <div>Innerhalb Deutschlands erfuhr die Partizipative Forschung seit den 1970-ern zunehmende Beliebtheit und Weiterentwicklung. So existieren heute eine Vielzahl an verschiedenen partizipativen Ansätzen, die jedoch alle die Gemeinsamkeit teilen, die gesellschaftliche Praxis partnerschaftlich, unter Einbezug eines Praxispartners/ einer Praxispartnerin, erforschen und beeinflussen zu wollen, sodass sie nach wie vor unter dem Oberbegriff der Partizipativen Forschung zusammengefasst werden.
-    </div>
-    <div>Kritiker*innen und Vertreter*innen eines konservativen/traditionellen Wissenschaftsverständnisses unterstellen partiziaptiven Anästzen häufig einen Mangel an “Wissenschaftlichkeit”, sodass partizipativ zu forschen auch heute noch keine Selbstverständlichkeit ist.
+
+    <div *ngFor="let questionAnswer of questionAnswers">
+      <a [routerLink] [fragment]="questionAnswer.href" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{exact: true}">{{questionAnswer.question}}</a>
     </div>
   </div>
+ 
+  <div class="content">
+    <h1>Partizipative Forschung</h1>
 
-  <div class="question-header">Was ist eigentlich der Unterschied zwischen Wissenschaft und Praxis und warum sollten beide miteinander verbunden werden?</div>
-  <div class="answer">
-    <div>Der wesentliche Unterschied zwischen Wissenschaft und Praxis liegt in den verschiedenen Wissensformen, die beide Bereiche hervorbringen. So gewinnt die Wissenschaft über Theorien Wissenschaftswissen, welches ein Erklärungs-, Deutungs- und Problemlösungswissen bereitstellt. Die Praxis hingegen generiert Handlungswissen und steht für ein berufliches Erfahrungswissen, in dem sich Methoden- und Regelwissen mit situativem Alltagswissen verbinden. Die Frage, ob Wissenschaft und Praxis überhaupt als voneinander getrennte Systeme betrachtet werden können ist umstritten und wird unterschiedlich beantwortet (<a href="https://static.springer.com/sgw/documents/1497288/application/pdf/Text+04+-+Theorie+und+Praxis.pdf">Referenz</a>).
-    </div>
-    <div>
-      In der partizipativen Forschung jedenfalls finden beide Formen des Wissens ihre Berechtigung und werden durch die partnerschaftliche Zusammenarbeit von Wissenschaftler*innen und Praxispartner*innen gezielt miteinander verschränkt. Dies hat nicht nur zur Folge, dass das Ergebnis am Ende des Forschungsprojekts sowohl für Praxis als auch für die Wissenschaft nutzbar ist, sondern auch, dass die Forschenden in der laufenden Zusammenarbeit, die Möglichkeit erhalten, sich eben jeweils die andere Wissensform zu Teilen anzueignen, den eigenen Wissenshorizont zu erweitern und am jeweils “gegenüberstehenden” Bereich (Wissenschaft oder Praxis) teilzuhaben.
+    <a class="question-header" id="was-ist-sozialwissenschaft"></a>
+
+    <div *ngFor="let questionAnswer of questionAnswers">
+      <div class="question-header" [id]="questionAnswer.href">
+        {{questionAnswer.question}}
+      </div>
+      <div *ngFor="let paragraph of questionAnswer.answerParagraphs" class="answer-paragraph">
+        <ng-container *ngFor="let piece of paragraph.pieces">
+          <ng-container *ngIf="piece.type === 'TEXT'">{{piece.content}}</ng-container>
+          <ng-container *ngIf="piece.type === 'LINK'">
+            <a [attr.href]="piece.href">{{piece.content}</a>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="question-header">Ein Beispiel</div>
-  <div class="answer">Angenommen ein/e Wissenschaftler*in möchte sich im Rahmen einer Forschungsarbeit mit den Auswirkungen von COVID-19 an Schulen auseinandersetzen und entscheidet sich hierfür für die Durchführung einer Partizipativen Forschung. Der/die Wissenschaftler*in würde bei einem partizipativen Forschungsvorhaben nicht bloß Beobachtungen anstellen oder Interviews mit den Betroffenen (z.B. Schüler*innen und Lehrer*innen) durchführen, sondern beispielsweise mehrere Lehrer*innen als Praxispartner*innen von Beginn an an der Forschung beteiligen. Dies meint auch, dass die konkrete Fragestellung der Forschung mit den Lehrer*innen als Praxispartner*innen gemeinsam abgestimmt wird, sodass die Untersuchung dieser Frage für beide Seiten von Interesse und Nutzen ist. So könnte die gemeinsam ausgearbeitete Frage letztendlich lauten, inwiefern Lehrkräfte bei der Durchführung von digitalem Unterricht in Pandemie-Zeiten besser unterstützt werden können. Hierzu könnten der/die forschende Wissenschaftler*in und die Lehrer*innen die nötigen Daten in gemeinsamen Diskussionen erheben oder beispielsweise beschließen eine weitreichende Umfrage unter den Kolleg*innen durchzuführen und auszuwerten, je nachdem, was die beteiligten Seiten für sinnvoll erachten. Als Endprodukt könnte für die Lehrer*innen beispielsweise. ein gemeinsam erarbeitetes Konzept herauskommen, das evtl. als Verbesserungsvorschlag beim Direktorat oder gar dem Bildungsministerium vorgelegt werden könnte. Der/die Wissenschaftler*in hingegen gewinnt evtl. Durch den Einbezug der Perspektive aus der Praxis ganz neuartige Erkenntnisse über bestimmte Muster bei gewissen Problemstellungen und deren Lösungsmöglichkeiten, die für die Theoriebildung oder weitere Forschungsvorhaben von Relevanz sind.</div>
 
-  <div class="question-header">Warum brauchen wir partizipative Forschung?</div>
-  <div class="answer">
-    <div>
-      Wissenschaftliche Theorien, die keine Anwendung finden und praktisches Wissen, das der Wissenschaft unzugänglich bleibt, können durch die partizipative Forschung überwunden werden. So können neue Sichtweisen auf Probleme und kreative Lösungen gewonnen werden, die für Gesellschaft und Wissenschaft von Nutzen sind.
-    </div>
-    <div>
-      Durch ihre normative Zielsetzung wirkt die Partizipative Forschung darüber hinaus emanzipierend und demokratiefördernd, indem sie generell Praktiker*innen aber auch gesellschaftlichen Minderheiten oder benachteiligten (Brufs-)Gruppen Gehör und Mitsprache- bzw. Mitgestaltungsrecht im sehr dominanten wissenschaftlichen Diskurs verschafft.
-    </div>
-  </div>
-
-  <div class="question-header">Was sind die Ziele der partizipativen Forschung?</div>
-  <div class="answer">
-    <div>Die Partizipative Forschung hat sich selbst drei maßgebende Ziele auferlegt:</div>
-    <div>1) Die Beteiligung (Partizipation) von nicht-wissenschaftlichen Akteuren als Co-Forscher*innen am Forschungsprozess;</div>
-    <div>2) Stärkung dieser Partner*innen durch Lernprozesse, Kompetenzentwicklung und individuelle und kollektive (Selbst)Befähigung (Empowerment);</div>
-    <div>3) die doppelte Zielsetzung von Erforschung und Veränderung sozialer Wirklichkeit und damit verbunden der Interventionscharakter und die Handlungs-/ Anwendungsorientierung der Forschung.</div>
-  </div>
-
-  <div class="question-header">Vorgehensweise</div>
-  <div class="answer">
-    <div>Da Partizipative Forschung ein Forschungsstil und keine festgeschriebene Methode ist, gibt es kein Schema-F in der Vorgehensweise bei der Durchführung eines partizipativen Forschungsprojekts. Grundsätzliche Schritte könnten jedoch sein:</div>
-    <div>1) Finden einer Co-Forscherin/ eines Co-Forschers, die/ der – je nach Ansatz und An-
-      wendungsfeld und Einrichtung – von einer bestimmten Thematik betroffen bezie-
-      hungsweise in einem Setting aktiv ist.
-    </div>
-    <div>2) Gemeinsame Entwicklung von Zielen und eines Studiendesigns. Es können sowohl
-      klassische Methoden der Sozialforschung als auch künstlerische, visuelle und perfor-
-      mative Methoden genutzt werden
-    </div>
-    <div>3) Gemeinsame Datenerhebung und -Auswertung, die innerhalb eines zyklischen Prozes-
-      ses von Aktion und Reflexion vorgenommen werden. Die Erhebung- und Auswertungs-
-      strategie wird dabei maßgeblich durch die Parxispartner*innen mitbestimmt.
-    </div>
-  </div>
-
-  <div class="question-header">Rollenverständnis: Was macht der/die Wisschenschaftler*in, was macht der/die Praxispartner*in. Wer ist für das Projekt verantwortlich und wer übernimmt welche Aufgaben?</div>
-  <div class="answer">
-    <div>Eine erfolgreiche Partizipative Forschung setzt zunächst voraus, dass der Beschluss von Wissenschaftler*in und Praxispartner*innen, in einem Projekt zusammenzuarbeiten, freiwillig gefasst wurde. Beide Seiten begegnen sich mit Respekt und sollten sich ein Mindestmaß an Vertrauen und Offenheit entgegenbringen, das im weiteren Verlauf, aber vor allem zu Beginn der Forschung gefestigt werden sollte.
-    </div>
-
-    <div>
-      Bei der partizipativen Forschung ist es wichtig, dass sich beide Seiten für das gemeinsame Projekt verantwortlich fühlen. Durch die geteilte Verantwortung kann die partizipative Forschung ihrem Ziel, gleichberechtigte Teilhabe im Forschungsprozess zu ermöglichen, überhaupt erst gerecht werden.
-    </div>
-
-    <div>
-      Im idealen Fall übernehmen Wissenschaftler*innen und Praxispartner*innen jeweils gleichermaßen hundert Prozent der Verantwortung für das gemeinsame Projekt. In der konkreten Umsetzung gestaltet sich dies aber häufig ungleichmäßiger und kann an verschiedenen Gründen liegen (z.B. Zurückhaltung seitens der Praxispartner*innen aufgrund von geringer Vertrautheit mit wissenschaftlicher Arbeit). Teil des partizipativen Forschungsprozesses sollte es daher sein, die Rollenverteilung frühzeitig gemeinsam zu klären und transparent zu gestalten sowie im weiteren Verlauf stetig zu reflektieren.
-    </div>
-
-    <div>
-      Die konkrete Aufgabenverteilung im Forschungsprozess ist projektabhängig, kann flexibel gestaltet werden und wird von Praxispartner*innen und Wissenschaftler*innen gemeinsam festgelegt.
-    </div>
-  </div>
-
+<div class="footer">
+  <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </div>

@@ -1,35 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:wght@700&family=Noto+Sans+JP:wght@100&family=Playfair+Display&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:wght@700&family=Noto+Sans+JP:wght@100&family=Playfair+Display&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
 :host {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.body {
+  display: flex;
+  flex-direction: row;
 }
   
 .content {
-width: 800px;
+  width: 800px;
+  margin-left: 48px;
 }
 
+.left-bar {
+  background-color: #f6f8fa;
+  padding: 24px 0;
+  width: 320px;
+}
+
+.left-bar .icon-header {
+  padding: 24px;
+}
+
+.left-bar #icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.left-bar a {
+  text-decoration: none;
+}
 
 h1 {
-font-family: 'Playfair Display', serif;
-font-size: 80px;
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
 }
 
 .question-header {
-    font-size: 40px;
-    margin-top: 48px;
-    margin-bottom: 1.6rem;
-    font-family: 'Bebas Neue', cursive;
-    color: #51568e;
+  font-size: 40px;
+  margin-top: 48px;
+  margin-bottom: 1.6rem;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Playfair Display', serif;
 }
 
-.answer {
-
-    font-family: "Noto Sans JP",sans-serif;
+.question-header a {
+  text-decoration: none;
+  color: #51568e;
 }
 
-.answer > div {
-margin-top: 16px;
+.answer-paragraph {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+
+/** STANDARD STYLES */
+
+.layout.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.layout.center {
+  align-items: center;
 }
