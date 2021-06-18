@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
-:host {
+.app {
   display: flex;
   flex-direction: column;
 }
@@ -29,18 +29,27 @@
 }
 
 .left-bar #icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin-right: 8px;
+}
+
+.left-bar-item {
+  padding: 8px 24px;
+}
+
+.left-bar-item:hover {
+  background-color: white;
 }
 
 .left-bar a {
   text-decoration: none;
+  color: black;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 80px;
+  font-size: 70px;
 }
 
 .question-header {
@@ -62,14 +71,7 @@ h1 {
   margin-bottom: 16px;
 }
 
-
-/** STANDARD STYLES */
-
-.layout.horizontal {
-  display: flex;
-  flex-direction: row;
-}
-
-.layout.center {
-  align-items: center;
+.footer {
+  background-color: #f6f8fa;
+  height: 200px;
 }

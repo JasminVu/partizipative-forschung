@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+
+/** STANDARD STYLES */
+
+.layout.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.layout.center {
+  align-items: center;
+}
