@@ -2,25 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 .app {
   display: flex;
   flex-direction: row;
   height: 100%;
+  font-family: 'PT Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.774);
 }
 
 .left-bar {
-  background-color: #f6f8fa;
+  background-color: #cee2ff42;
   padding: 24px 0;
   width: 320px;
   overflow: auto;
   position: sticky;
   top: 0;
   height: 100vh;
+  font-size: 15px;
 }
 
 .left-bar .icon-header {
   padding: 24px;
+  font-family: 'Playfair Display', serif;
 }
 
 .left-bar #icon {
@@ -39,7 +43,7 @@
 
 .left-bar a {
   text-decoration: none;
-  color: black;
+  color: rgba(0, 0, 0, 0.774);
 }
 
 .body {
@@ -57,6 +61,7 @@
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 70px;
+  color: #08056f;
 }
 
 .question-header {
@@ -73,9 +78,11 @@ h1 {
 }
 
 .answer-paragraph {
-  font-family: 'Source Sans Pro', sans-serif;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: 'PT Sans', sans-serif;
   line-height: 24px;
   margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.774);
 }
 
 .faq {
@@ -112,4 +119,8 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   padding: 48px;
+}
+
+.footer-header {
+  font-weight: bold;
 }
