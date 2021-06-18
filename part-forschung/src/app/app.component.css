@@ -78,6 +78,33 @@ h1 {
   margin-bottom: 16px;
 }
 
+.faq {
+  border: 1px solid rgba(0, 0, 0, 0.219);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+.faq-question {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.faq-question:hover {
+  cursor: pointer;
+}
+
+.faq-expand-icon, .faq-collapse-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+}
+
+.faq-answer {
+  padding: 0 24px 12px 24px;
+}
+
 .footer {
   background-color: #f6f8fa;
   height: 200px;
@@ -85,8 +112,4 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   padding: 48px;
-}
-
-.footer-header {
-  
 }

@@ -42,8 +42,12 @@
 
       <div>
         <div class="question-header" id="faq">Häufig gestellte Fragen</div>
-        <div *ngFor="let faq of faqs">
-          <div class="faq-question" (click)="toggleFaq(faq.id)">{{faq.question}}</div>
+        <div *ngFor="let faq of faqs" class="faq">
+          <div class="faq-question" (click)="toggleFaq(faq.id)">
+            <img *ngIf="isFaqHidden(faq.id)" src="assets/img/plus.png" class="faq-expand-icon">
+            <img *ngIf="!isFaqHidden(faq.id)" src="assets/img/minus.png" class="faq-collapse-icon">
+            {{faq.question}}
+          </div>
           <div class="faq-answer" [hidden]="isFaqHidden(faq.id)">{{faq.answer}}</div>
         </div>
       </div>
@@ -64,6 +68,8 @@
       <div class="footer-column">
         <div class="footer-header">Referenzen</div>
         <div>Icons made by <a href="https://creativemarket.com/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </div>
 
     </div>
