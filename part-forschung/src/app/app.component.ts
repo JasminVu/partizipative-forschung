@@ -1,3 +1,5 @@
+import { isDelegatedFactoryMetadata } from '@angular/compiler/src/render3/r3_factory';
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 import { ExtraOptions, RouterModule } from '@angular/router';
 
@@ -109,6 +111,17 @@ const QUESTION_ANSWERS: QuestionAnswer[] = [
   },
 ];
 
+interface Faq {
+  readonly id: number;
+  readonly question: string;
+  readonly answer: string;
+}
+
+const FAQS: Faq[] = [
+  {id: 1, question: "Question 1", answer: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
+  {id: 2, question: "Question 2", answer: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
+];
+
 
 @Component({
   selector: 'app-root',
@@ -118,5 +131,19 @@ const QUESTION_ANSWERS: QuestionAnswer[] = [
 export class AppComponent {
   title = 'part-forschung';
   questionAnswers = QUESTION_ANSWERS;
+  faqs = FAQS;
 
+  expandedFaq?: number;
+
+  toggleFaq(id: number) {
+    if (this.expandedFaq === id) {
+      this.expandedFaq = undefined;
+    } else {
+      this.expandedFaq = id;
+    }
+  }
+
+  isFaqHidden(id: number): boolean {
+    return this.expandedFaq !== id;
+  }
 }

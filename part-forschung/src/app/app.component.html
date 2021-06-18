@@ -11,6 +11,12 @@
       <a [routerLink] [fragment]="questionAnswer.href" [routerLinkActive]="'active'"
       [routerLinkActiveOptions]="{exact: true}">{{questionAnswer.question}}</a>
     </div>
+
+
+    <div  class="left-bar-item">
+      <a [routerLink] fragment="faq" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{exact: true}">FAQ</a>
+    </div>
   </div>
 
   <main class="body">
@@ -31,6 +37,14 @@
               <a [attr.href]="piece.href">{{piece.content}</a>
             </ng-container>
           </ng-container>
+        </div>
+      </div>
+
+      <div>
+        <div class="question-header" id="faq">Häufig gestellte Fragen</div>
+        <div *ngFor="let faq of faqs">
+          <div class="faq-question" (click)="toggleFaq(faq.id)">{{faq.question}}</div>
+          <div class="faq-answer" [hidden]="isFaqHidden(faq.id)">{{faq.answer}}</div>
         </div>
       </div>
     </div>
