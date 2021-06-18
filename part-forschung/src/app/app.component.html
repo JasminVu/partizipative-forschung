@@ -1,18 +1,19 @@
 <div class="app">
-  <div class="body">
 
-    <div class="left-bar">
-      <div class="icon-header layout horizontal center">
-        <!-- <img id="icon" src="assets/img/007-find.png"> -->
-        <img id="icon" src="assets/img/conversation.png">
-        <div>Partizipative Forschung</div>
-      </div>
-  
-      <div *ngFor="let questionAnswer of questionAnswers" class="left-bar-item">
-        <a [routerLink] [fragment]="questionAnswer.href" [routerLinkActive]="'active'"
-        [routerLinkActiveOptions]="{exact: true}">{{questionAnswer.question}}</a>
-      </div>
+  <div class="left-bar">
+    <div class="icon-header layout horizontal center">
+      <!-- <img id="icon" src="assets/img/007-find.png"> -->
+      <img id="icon" src="assets/img/conversation.png">
+      <div>Partizipative Forschung</div>
     </div>
+
+    <div *ngFor="let questionAnswer of questionAnswers" class="left-bar-item">
+      <a [routerLink] [fragment]="questionAnswer.href" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{exact: true}">{{questionAnswer.question}}</a>
+    </div>
+  </div>
+
+  <main class="body">
    
     <div class="content">
       <h1>Partizipative Forschung — einfach erklärt</h1>
@@ -33,10 +34,11 @@
         </div>
       </div>
     </div>
-  </div>
+    
+    <div class="footer">
+      <div>Icons made by <a href="https://creativemarket.com/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </div>
+  </main>
   
   
-  <div class="footer">
-    <div>Icons made by <a href="https://creativemarket.com/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-  </div>
 </div>

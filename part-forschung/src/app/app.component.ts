@@ -118,4 +118,5 @@ const QUESTION_ANSWERS: QuestionAnswer[] = [
 export class AppComponent {
   title = 'part-forschung';
   questionAnswers = QUESTION_ANSWERS;
+
 }

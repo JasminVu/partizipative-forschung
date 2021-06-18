@@ -5,23 +5,18 @@
 
 .app {
   display: flex;
-  flex-direction: column;
-}
- 
-.body {
-  display: flex;
   flex-direction: row;
-}
-  
-.content {
-  width: 800px;
-  margin-left: 48px;
+  height: 100%;
 }
 
 .left-bar {
   background-color: #f6f8fa;
   padding: 24px 0;
   width: 320px;
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .left-bar .icon-header {
@@ -45,6 +40,18 @@
 .left-bar a {
   text-decoration: none;
   color: black;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: auto;
+}
+  
+.content {
+  width: 800px;
+  margin-left: 48px;
 }
 
 h1 {
