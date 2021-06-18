@@ -81,4 +81,12 @@ h1 {
 .footer {
   background-color: #f6f8fa;
   height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 48px;
+}
+
+.footer-header {
+  
 }
